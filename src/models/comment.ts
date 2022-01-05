@@ -2,14 +2,14 @@ import { Schema, Document, model } from 'mongoose'
 import { IUser } from './user'
 
 const userSchema = new Schema({
-  id: String,
+  _id: String,
   content: String,
   sender: { type: Schema.Types.ObjectId, ref: 'User' },
   createdAt: Date,
 })
 
 interface IComment extends Document {
-  id: string
+  _id: string
   content: string
   sender: IUser
   createdAt: Date
@@ -20,5 +20,5 @@ interface ICreateUser {
   sender: IComment['sender']
 }
 
-const Post = model<IComment>('Post', userSchema)
-export { Post, IComment, ICreateUser as ICreatePost }
+const Comment = model<IComment>('Comment', userSchema)
+export { Comment, IComment, ICreateUser }

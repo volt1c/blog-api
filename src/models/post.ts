@@ -3,7 +3,7 @@ import { IUser } from './user'
 import { IComment } from './comment'
 
 const postSchema = new Schema({
-  id: String,
+  _id: String,
   title: String,
   content: String,
   sender: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -12,7 +12,7 @@ const postSchema = new Schema({
 })
 
 interface IPost extends Document {
-  id: string
+  _id: string
   title: string
   content: string
   sender: IUser

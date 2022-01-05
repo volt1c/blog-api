@@ -1,7 +1,7 @@
 import { Schema, Document, model } from 'mongoose'
 
 const userSchema = new Schema({
-  id: String,
+  _id: String,
   username: String,
   password: String,
   email: String,
@@ -10,7 +10,7 @@ const userSchema = new Schema({
 })
 
 interface IUser extends Document {
-  id: string
+  _id: string
   username: string
   password: string
   email: string
@@ -23,5 +23,5 @@ interface ICreateUser {
   email: IUser['email']
 }
 
-const Post = model<IUser>('Post', userSchema)
-export { Post, IUser, ICreateUser }
+const User = model<IUser>('User', userSchema)
+export { User, IUser, ICreateUser }
