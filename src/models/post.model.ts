@@ -1,6 +1,6 @@
 import { Schema, Document, model } from 'mongoose'
-import { IUser } from './user'
-import { IComment } from './comment'
+import { UserDoc } from './user.model'
+import { CommentDoc } from './comment.model'
 
 const postSchema = new Schema({
   _id: String,
@@ -11,19 +11,14 @@ const postSchema = new Schema({
   cratedAt: Date,
 })
 
-interface IPost extends Document {
+interface PostDoc extends Document {
   _id: string
   title: string
   content: string
-  sender: IUser
-  comments: IComment[]
+  sender: UserDoc
+  comments: CommentDoc[]
   createdAt: Date
 }
-interface ICreatePost {
-  title: IPost['title']
-  content: IPost['content']
-  sender: IPost['sender']
-}
 
-const Post = model<IPost>('Post', postSchema)
-export { Post, IPost, ICreatePost }
+const Post = model<PostDoc>('Post', postSchema)
+export { Post, PostDoc }
