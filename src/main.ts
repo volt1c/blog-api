@@ -7,6 +7,19 @@ emojilogs.config({})
 dotenv.config()
 
 async function main() {
+  if (!process.env.REFRESH_TOKEN_SECRET) {
+    console.warn(
+      'REFRESH_TOKEN_SECRET is undefined, so default will be used (not recommended)'
+    )
+    process.env.REFRESH_TOKEN_SECRET = 'REFRESH_TOKEN_SECRET'
+  }
+  if (!process.env.TOKEN_SECRET) {
+    console.warn(
+      'TOKEN_SECRET is undefined so defaul will be used (not recommended)'
+    )
+    process.env.TOKEN_SECRET = 'TOKEN_SECRET'
+  }
+  if (!process.env.AVATAR_URL) console.warn('AVATAR_URL is undefined')
   try {
     if (!process.env.MONGO_URI) return console.error('MONGO_URI is undefined!')
     await mongoose.connect(process.env.MONGO_URI)
