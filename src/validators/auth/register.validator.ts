@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 import { body, ValidationError, validationResult } from 'express-validator'
-import { User } from 'models/user'
+import { User } from '../../models/user'
 
 export const registerValidator = [
   body('name').isString().isLength({ min: 4, max: 20 }),
