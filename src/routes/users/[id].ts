@@ -1,6 +1,6 @@
 import { Request, Response, Router } from 'express'
 import { param, validationResult } from 'express-validator'
-import { User } from '../../models/user.model'
+import { User } from '../../models/user/user.model'
 
 const router = Router()
 
@@ -17,6 +17,7 @@ router.get(
       id: rawUser?._id,
       name: rawUser?.name,
       email: rawUser?.email,
+      avatar: rawUser?.avatar,
     })
   }
 )
