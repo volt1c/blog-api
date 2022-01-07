@@ -1,6 +1,6 @@
-import { Schema, Document, model } from 'mongoose'
+import { Schema } from 'mongoose'
 
-const userSchema = new Schema(
+export const UserSchema = new Schema(
   {
     name: {
       required: true,
@@ -28,17 +28,3 @@ const userSchema = new Schema(
     timestamps: true,
   }
 )
-
-interface UserDoc extends Document {
-  _id?: string
-  name: string
-  pass: string
-  email: string
-  avatar: string
-  createdAt: Date
-  updatedAt: Date
-}
-
-const User = model<UserDoc>('User', userSchema)
-
-export { User, UserDoc }
