@@ -1,16 +1,13 @@
-import { Schema } from 'mongoose'
+import passportLocalMongoose from 'passport-local-mongoose'
+import { PassportLocalOptions, PassportLocalSchema, Schema } from 'mongoose'
 
-export const UserSchema = new Schema(
+const UserSchema = new Schema(
   {
     name: {
       required: true,
       type: String,
       unique: true,
       trim: true,
-    },
-    pass: {
-      required: true,
-      type: String,
     },
     email: {
       required: true,
@@ -27,4 +24,13 @@ export const UserSchema = new Schema(
   {
     timestamps: true,
   }
-)
+) as PassportLocalSchema
+
+const opt: PassportLocalOptions = {
+  usernameField: 'name',
+  usernameQueryFields: [],
+}
+
+UserSchema.plugin(passportLocalMongoose, opt)
+
+export { UserSchema }

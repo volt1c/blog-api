@@ -1,5 +1,8 @@
-import { model } from 'mongoose'
+import { model, PassportLocalModel } from 'mongoose'
 import { UserDoc } from './user.document'
 import { UserSchema } from './user.schema'
 
-export const User = model<UserDoc>('User', UserSchema)
+export const User: PassportLocalModel<UserDoc> = model<UserDoc>(
+  'User',
+  UserSchema
+)
