@@ -2,9 +2,11 @@ import emojilogs from 'emoji-logs'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import app from './app'
+import passport from './config/passport'
 
 emojilogs.config({})
 dotenv.config()
+passport()
 
 async function main() {
   if (!process.env.REFRESH_TOKEN_SECRET) {
