@@ -1,11 +1,13 @@
 import { Request, Response, Router } from 'express'
-import userRoutes from './users'
 import authRoutes from './auth'
+import postRoutes from './posts'
+import userRoutes from './users'
 
 const router = Router()
 
-router.use('/users', userRoutes)
 router.use('/auth', authRoutes)
+router.use('/posts', postRoutes)
+router.use('/users', userRoutes)
 
 router.get('/', async (req: Request, res: Response) => {
   res.status(200).end('Api works!')
