@@ -1,5 +1,5 @@
-import { CommentDoc } from 'models/comment'
-import { UserDoc } from 'models/user'
+import { CommentDoc } from '../../models/comment'
+import { UserDoc } from '../../models/user'
 import { Document } from 'mongoose'
 
 export interface PostDoc extends Document {
