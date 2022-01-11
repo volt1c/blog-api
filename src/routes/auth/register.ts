@@ -4,10 +4,6 @@ import { Router } from 'express'
 
 const router = Router()
 
-router.post(
-  '/register',
-  AuthValidator.registerValidator,
-  AuthController.register
-)
+router.post('/register', AuthValidator.register, AuthController.register)
 
 export default router
