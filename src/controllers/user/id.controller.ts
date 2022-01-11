@@ -7,6 +7,7 @@ export default async (req: Request, res: Response) => {
   const rawUser = await User.findById(id).exec()
 
   res.status(200).json({
+    id: rawUser?._id,
     name: rawUser?.name,
     email: rawUser?.email,
     avatar: rawUser?.avatar,
