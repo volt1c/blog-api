@@ -1,6 +1,7 @@
+import idController from './id.controller'
 import nameController from './name.controller'
 
-const UserController = {
+export default {
   name: nameController,
+  id: idController,
 }
-export default UserController
