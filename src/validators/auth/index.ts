@@ -1,9 +1,9 @@
-import { registerValidator } from './register.validator'
-import { loginValidator } from './login.validator'
+import registerValidator from './register.validator'
+import loginValidator from './login.validator'
 
 const AuthValidator = {
-  registerValidator,
-  loginValidator,
+  register: registerValidator,
+  login: loginValidator,
 }
 
 export default AuthValidator

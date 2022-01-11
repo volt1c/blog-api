@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 import ms from 'ms'
 import { UserDoc } from '../../models/user'
 
-export async function login(req: Request, res: Response) {
+export default async (req: Request, res: Response) => {
   const { _id } = req.user as UserDoc
 
   const accessToken = jwt.sign(

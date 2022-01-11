@@ -1,6 +1,6 @@
-import { name } from './name.controller'
+import nameController from './name.controller'
 
 const UserController = {
-  name,
+  name: nameController,
 }
 export default UserController

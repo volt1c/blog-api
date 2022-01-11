@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { User } from '../../models/user'
 
-export async function register(req: Request, res: Response) {
+export default async (req: Request, res: Response) => {
   const { email, name, pass } = req.body
 
   const user = new User({

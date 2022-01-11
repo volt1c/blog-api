@@ -1,11 +1,12 @@
 import { Request, Response } from 'express'
 import { User } from '../../models/user/user.model'
 
-export async function name(req: Request, res: Response) {
+export default async (req: Request, res: Response) => {
   const { name } = req.params
+
   const rawUser = await User.findOne({ name }).exec()
+
   res.status(200).json({
-    id: rawUser?._id,
     name: rawUser?.name,
     email: rawUser?.email,
     avatar: rawUser?.avatar,

@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express'
 import { body, ValidationError, validationResult } from 'express-validator'
 import { User } from '../../models/user'
 
-export const registerValidator = [
+export default [
   body('name').isString().isLength({ min: 4, max: 20 }),
   body('pass').isString().isLength({ min: 8, max: 20 }),
   body('email').isEmail(),

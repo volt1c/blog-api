@@ -1,8 +1,8 @@
-import { login } from './login.controller'
-import { register } from './register.controller'
+import loginController from './login.controller'
+import registerController from './register.controller'
 
 const AuthController = {
-  register,
-  login,
+  register: registerController,
+  login: loginController,
 }
 export default AuthController

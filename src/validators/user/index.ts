@@ -1,4 +1,4 @@
-import { nameValidator } from './name.validation'
+import nameValidator from './name.validation'
 
 const UserValidator = {
   name: nameValidator,
