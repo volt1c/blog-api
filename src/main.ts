@@ -6,7 +6,6 @@ import passport from './configs/passport'
 
 emojilogs.config({})
 dotenv.config()
-passport()
 
 async function main() {
   if (!process.env.REFRESH_TOKEN_SECRET) {
@@ -21,6 +20,7 @@ async function main() {
     )
     process.env.TOKEN_SECRET = 'TOKEN_SECRET'
   }
+  passport()
   if (!process.env.AVATAR_URL) {
     console.warn('AVATAR_URL is undefined')
     process.env.AVATAR_URL = 'https://i.imgur.com/IFtORGZ.png'
