@@ -1,8 +1,9 @@
 import { Router } from 'express'
-import userIdRouter from './name'
+import UserController from '../../controllers/user'
+import UserValidator from '../../validators/user'
 
 const router = Router()
 
-router.use('/name', userIdRouter)
+router.get('/name/:name', UserValidator.name, UserController.name)
 
 export default router
