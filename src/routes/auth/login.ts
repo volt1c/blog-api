@@ -7,7 +7,7 @@ const router = Router()
 
 router.post(
   '/login',
-  AuthValidator.loginValidator,
+  AuthValidator.login,
   passport.authenticate('local', { session: false }),
   AuthController.login
 )
