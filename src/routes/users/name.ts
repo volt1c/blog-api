@@ -4,6 +4,6 @@ import { Router } from 'express'
 
 const router = Router()
 
-router.get('/:id', UserValidator.idValidator, UserController.id)
+router.get('/:name', UserValidator.name, UserController.name)
 
 export default router

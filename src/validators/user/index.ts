@@ -1,7 +1,7 @@
-import { idValidator } from './id.validation'
+import { nameValidator } from './name.validation'
 
 const UserValidator = {
-  idValidator,
+  name: nameValidator,
 }
 
 export default UserValidator

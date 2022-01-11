@@ -1,6 +1,6 @@
-import { id } from './id.controller'
+import { name } from './name.controller'
 
 const UserController = {
-  id,
+  name,
 }
 export default UserController
