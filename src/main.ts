@@ -2,7 +2,7 @@ import emojilogs from 'emoji-logs'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import app from './app'
-import passport from './config/passport'
+import passport from './configs/passport'
 
 emojilogs.config({})
 dotenv.config()
@@ -21,7 +21,14 @@ async function main() {
     )
     process.env.TOKEN_SECRET = 'TOKEN_SECRET'
   }
-  if (!process.env.AVATAR_URL) console.warn('AVATAR_URL is undefined')
+  if (!process.env.AVATAR_URL) {
+    console.warn('AVATAR_URL is undefined')
+    process.env.AVATAR_URL = 'https://i.imgur.com/IFtORGZ.png'
+  }
+  if (!process.env.PORT) {
+    console.warn('PORT is undefined so 3000 (default) will be used')
+    process.env.PORT = '3000'
+  }
   try {
     if (!process.env.MONGO_URI) return console.error('MONGO_URI is undefined!')
     await mongoose.connect(process.env.MONGO_URI)
@@ -31,11 +38,8 @@ async function main() {
   }
 
   try {
-    if (!process.env.PORT)
-      console.warn('PORT is undefined so 3000 (default) will be used')
-
-    await app.listen(process.env.PORT || 3000)
-    console.info(`Listening on ${process.env.PORT || '3000 (default)'}`)
+    await app.listen(process.env.PORT)
+    console.info(`Listening on ${process.env.PORT}`)
   } catch (err) {
     return console.error(err)
   }

@@ -7,7 +7,7 @@ export default async (req: Request, res: Response) => {
   const user = new User({
     name: name,
     email: email,
-    avatar: process.env.AVATAR_URL ?? 'https://i.imgur.com/IFtORGZ.png',
+    avatar: process.env.AVATAR_URL,
   })
 
   await User.register(user, pass)
