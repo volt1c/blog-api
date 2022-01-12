@@ -14,8 +14,9 @@ if (!process.env.MONGO_URI) {
 
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => console.info('Mongoose is connected'))
+  .then(() => {
+    console.info('Mongoose is connected')
+    app.listen(process.env.PORT)
+    console.info(`Listening on ${process.env.PORT}`)
+  })
   .catch(err => console.error(err))
-
-app.listen(process.env.PORT)
-console.info(`Listening on ${process.env.PORT}`)
