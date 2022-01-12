@@ -6,6 +6,6 @@ export interface UserDoc extends Document {
   pass: string
   email: string
   avatar: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt?: Date
+  updatedAt?: Date
 }
