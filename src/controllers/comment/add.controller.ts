@@ -14,6 +14,8 @@ export default async (req: Request, res: Response) => {
     sender: user._id,
   })
 
+  await comment.save()
+
   await Post.updateOne({ _id: postId }, { $push: { comments: comment } })
 
   res.status(201).end()
