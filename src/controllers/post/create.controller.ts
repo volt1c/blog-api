@@ -14,5 +14,5 @@ export default async (req: Request, res: Response) => {
 
   await post.save()
 
-  return res.status(201).end()
+  return res.status(201).json({ id: post._id })
 }
