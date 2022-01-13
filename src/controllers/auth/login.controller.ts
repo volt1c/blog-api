@@ -6,17 +6,9 @@ import { UserDoc } from '../../models/user'
 export default async (req: Request, res: Response) => {
   const { _id } = req.user as UserDoc
 
-  const accessToken = jwt.sign(
-    { id: _id },
-    process.env.TOKEN_SECRET as string,
-    { expiresIn: ms('24h') }
-  )
+  const token = jwt.sign({ id: _id }, process.env.TOKEN_SECRET as string, {
+    expiresIn: ms('24h'),
+  })
 
-  const refreshToken = jwt.sign(
-    { id: _id },
-    process.env.REFRESH_TOKEN_SECRET as string,
-    { expiresIn: ms('30d') }
-  )
-
-  res.send({ accessToken, refreshToken })
+  res.send({ token })
 }
